@@ -16,7 +16,7 @@ Para configurar el entorno de desarrollo puede seguir los pasos establecidos en 
 
 ## Arquitectura del proyecto
 
-Este proyecto sigue una **arquitectura de capas verticales** (Vertical Slice Architecture) **basada en features**. Cada feature representa una funcionalidad específica de la aplicación, lo que facilita la organización y el mantenimiento del código.
+Este proyecto sigue una **arquitectura de capas verticales** (Vertical Slice Architecture) **basada en features**. Si desea conocer más detalles sobre la arquitectura del proyecto, puede consultar el archivo [ARCHITECTURE.md](./docs/ARCHITECTURE.md).
 
 ```bash
 ├── src/
