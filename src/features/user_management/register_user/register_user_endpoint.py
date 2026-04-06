@@ -2,7 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends
 from .register_user_request import RegisterUserRequest
 from .register_user_handler import RegisterUserHandler
-from .dependencies import get_register_user_handler
+from ..shared.dependencies import get_register_user_handler
 
 router = APIRouter()
 
