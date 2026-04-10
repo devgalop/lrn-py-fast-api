@@ -70,3 +70,66 @@ FastAPI es un framework web moderno y de alto rendimiento para construir APIs co
 #Recomienda instalar FastAPI con las dependencias estándar para asegurarte de tener todas las herramientas necesarias para el desarrollo y la producción
 pip install "fastapi[standard]"
 ```
+
+## Proyecto como paquete
+
+Para organizar tu proyecto como un paquete de Python, puedes seguir estos pasos:
+
+- Crea una estructura de directorios para tu proyecto. Por ejemplo:
+
+```mi_proyecto/
+├── alias_del_entorno/  # Entorno virtual
+├── mi_paquete/        # Código fuente del paquete
+│   ├── __init__.py    # Archivo de inicialización del paquete  
+│   └── modulo.py      # Módulo de ejemplo
+├── tests/            # Pruebas del paquete
+│   └── test_modulo.py # Prueba de ejemplo
+├── README.md         # Documentación del proyecto
+└── setup.py          # Archivo de configuración del paquete
+```
+
+- El archivo `setup.py` es el archivo de configuración del paquete. Aquí puedes definir la información del paquete, las dependencias y otros detalles. Un ejemplo básico de `setup.py` podría ser:
+
+```python
+from setuptools import setup, find_packages
+
+setup(
+    name="mi_paquete",
+    version="0.1.0",
+    packages=find_packages(),
+    install_requires=[
+        # Aquí puedes listar las dependencias de tu paquete
+    ],
+)
+```
+
+**IMPORTANTE**: En python existen archivos como `__init__.py` que indican que el directorio es un paquete de python, por lo tanto, es necesario crear este archivo aunque esté vacío para que el directorio sea reconocido como un paquete.
+
+- Para instalar tu paquete localmente, puedes usar el siguiente comando:
+
+```bash
+#Instala el paquete localmente en modo editable
+#Esto permite que los cambios en el código fuente se reflejen inmediatamente sin necesidad de reinstalar el paquete
+pip install -e .
+```
+
+- `pyproject.toml` es un archivo de configuración que se utiliza para definir las dependencias y la configuración del proyecto. Es una alternativa moderna a `setup.py` y se recomienda su uso para proyectos nuevos. Puedes crear un archivo `pyproject.toml` con el siguiente contenido:
+
+```toml
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "mi_paquete"
+version = "0.1.0"
+dependencies = [
+    # Aquí puedes listar las dependencias de tu paquete
+]
+```
+
+- Para instalar tu paquete utilizando `pyproject.toml`, puedes usar el siguiente comando:
+
+```bash
+#Instala el paquete localmente utilizando pyproject.toml
+pip install -e .
+```
